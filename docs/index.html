@@ -1,41 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bom dia minha princesa 💖</title>
+  <title>I Love You 💖</title>
   <style>
     body {
-      margin:0; padding:0;
-      background: linear-gradient(to top right, #ffe6f0, #fff5fc);
+      margin: 0;
+      padding: 0;
+      background: #ffeef5;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      display:flex; flex-direction:column;
-      justify-content:center; align-items:center;
-      height:100vh; text-align:center; overflow:hidden;
+      text-align: center;
+      overflow: hidden;
     }
+
+    .foto {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-bottom: 4px solid #ffb6c1;
+    }
+
     h1 {
-      color: #ff4da6; font-size:3em;
-      text-shadow:2px 2px 5px #ffaacc;
+      color: #ff1493;
+      font-size: 2.8em;
+      margin: 20px 0 10px;
       animation: pulse 2s infinite;
+      text-shadow: 1px 1px 3px #ff69b4;
     }
-    .decor {
-      font-size:2em; margin:10px 0;
-      animation:float 4s infinite ease-in-out;
+
+    .btn {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff1493;
+      animation: pulse 2s infinite;
+      margin-top: 20px;
     }
+
     @keyframes pulse {
-      0%{transform:scale(1);}
-      50%{transform:scale(1.05);}
-      100%{transform:scale(1);}
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff69b4;
+      font-size: 24px;
+      animation: float 6s linear infinite;
+    }
+
     @keyframes float {
-      0%{transform:translateY(0);}
-      50%{transform:translateY(-10px);}
-      100%{transform:translateY(0);}
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="decor">🌸💖✨🌷💫🌼</div>
-  <h1>Bom dia minha princesa 💕</h1>
-  <div class="decor">🌺💗🌞🌹💘🌟</div>
+
+  <!-- Foto -->
+  <img class="foto" src="https://luized23.github.io/Bomdiaedilene/foto.jpg" alt="Foto do casal">
+
+  <h1>I Love You 💕</h1>
+  <button class="btn">Te amo 💘</button>
+
+  <!-- Música -->
+  <audio autoplay loop>
+    <source src="https://dl.dropboxusercontent.com/s/6x9acw4b7a0mccz/Bruno%20Mars%20-%20Just%20The%20Way%20You%20Are%20%28Audio%29.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Corações animados -->
+  <div class="hearts">
+    <!-- Serão criados com JS -->
+  </div>
+
+  <script>
+    // Criar corações flutuantes
+    const container = document.querySelector('.hearts');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      container.appendChild(heart);
+    }
+  </script>
+
 </body>
 </html>
